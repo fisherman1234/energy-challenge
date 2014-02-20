@@ -13,6 +13,7 @@ group :development, :test do
   gem 'capistrano'
 end
 
+gem 'rvm-capistrano'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails", ">= 2.0.3", :group => :assets

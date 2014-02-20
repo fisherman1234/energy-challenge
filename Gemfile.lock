@@ -112,6 +112,8 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.11.0)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.2.14)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -152,6 +154,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.12)
   rspec-rails
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   spork
   therubyracer
