@@ -16,3 +16,19 @@ ssh_options[:auth_methods] = ["publickey"]
 ssh_options[:keys] = ["config/HealthloopMac.pem"]
 set :deploy_via, :remote_cache
 set :use_sudo, false
+
+
+symlink_configuration = [
+    %w(config/database.yml    config/database.yml),
+    %w(system                 public/system)
+]
+
+namespace :deploy do
+  desc "Creates symbolic links from shared folder"
+  task :setup_symlinks do
+    puts "\n\n=== Setting up Symbolic Links! ===\n\n"
+    symlink_configuration.each do |config|
+      run "ln -nfs #{File.join(shared_path, config[0])} #{File.join(release_path, config[1])}"
+    end
+  end
+end
