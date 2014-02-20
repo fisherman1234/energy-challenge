@@ -32,3 +32,5 @@ namespace :deploy do
     end
   end
 end
+
+after "deploy:update_code", "deploy:setup_symlinks"
