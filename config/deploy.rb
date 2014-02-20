@@ -34,3 +34,20 @@ namespace :deploy do
 end
 
 after "deploy:update_code", "deploy:setup_symlinks"
+after "deploy:update_code", "deploy:migrate"
+
+
+
+namespace :remote do
+  desc "Connects remotely to the database"
+  task :console do
+    server ||= find_servers_for_task(current_task).first
+    exec %{ssh #{user}@#{server} -i #{ssh_options[:keys].first} -t "~/.rvm/bin/rvm-shell -c 'cd #{current_path} && bundle exec rails c #{rails_env}'"}
+  end
+
+  desc "Connects remotely to the database"
+  task :dbconsole do
+    server ||= find_servers_for_task(current_task).first
+    exec %{ssh #{user}@#{server} -i #{ssh_options[:keys].first} -t "~/.rvm/bin/rvm-shell -c 'cd #{current_path} && bundle exec rails dbconsole #{rails_env}'"}
+  end
+end
