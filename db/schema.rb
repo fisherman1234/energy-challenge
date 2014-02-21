@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220185427) do
+ActiveRecord::Schema.define(:version => 20140220232536) do
+
+  create_table "california_productions", :force => true do |t|
+    t.datetime "time"
+    t.integer  "geothermal"
+    t.integer  "biomass"
+    t.integer  "biogas"
+    t.integer  "small_hydro"
+    t.integer  "wind_total"
+    t.integer  "solar"
+    t.integer  "renewables"
+    t.integer  "nuclear"
+    t.integer  "thermal"
+    t.integer  "imports"
+    t.integer  "hydro"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "green_button_consumptions", :force => true do |t|
     t.string   "user_id"

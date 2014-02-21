@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'json'
+gem 'greenbutton', path: 'lib/gems/greenbutton-ruby'
+
 gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -12,6 +14,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spork'
   gem 'capistrano'
+  gem 'pry-rails'
 end
 
 gem 'rvm-capistrano'
