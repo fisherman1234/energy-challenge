@@ -67,17 +67,17 @@ module GreenButton
       end
     end
 
-    def to_quarter_slices
+    def to_hourly_slices
       current_date = @entries.first.start_date
       current_entry_index = 0
       time_cursor = current_date
-      quarter_end_date = start_date + ((end_date - start_date) / (15 * 60)).to_i * 15.minutes
+      hour_end_date = start_date + ((end_date - start_date) / (60 * 60)).to_i * 60.minutes
 
       @slices = {}
 
-      while current_date < quarter_end_date do
+      while current_date < hour_end_date do
         consumption = 0
-        segment_end_time = current_date + 15.minutes
+        segment_end_time = current_date + 60.minutes
 
         while time_cursor < segment_end_time do
           if segment_end_time < @entries[current_entry_index].end_date

@@ -3,7 +3,7 @@ class GreenButtonConsumption < ActiveRecord::Base
 
 
   def self.importDocForUser(string, user_id)
-    points = GreenButton::GreenButtonData.new(string).to_quarter_slices
+    points = GreenButton::GreenButtonData.new(string).to_hourly_slices
     points.each do |k,v|
       GreenButtonConsumption.create({:user_id => user_id, :time => k, :usage => v})
     end
