@@ -8,6 +8,15 @@ class CaliforniaProduction < ActiveRecord::Base
     open("http://content.caiso.com/green/renewrpt/#{formatted_date}_DailyRenewablesWatch.txt") { |f| f.read }
   end
 
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |prod|
+        csv << prod.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def self.import_date(date)
     self.import(self.get_data(date))
   end
