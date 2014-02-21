@@ -2,6 +2,28 @@ require 'csv'
 require 'open-uri'
 class CaliforniaProduction < ActiveRecord::Base
   attr_accessible :biogas, :biomass, :geothermal, :hydro, :imports, :nuclear, :renewables, :small_hydro, :solar, :thermal, :time, :wind_total
+  before_save :cache_properties
+
+  def cache_properties
+    if renewables && nuclear && thermal && imports && hydro
+      sum = renewables + nuclear + thermal + imports + hydro
+      self.renewable_percentage = renewables.to_f / (renewables + nuclear + thermal + imports + hydro) if sum != 0
+    end
+    return unless time
+    self.year = time.year
+    self.month = time.month
+    self.day = time.day
+    self.hour = time.hour
+  end
+
+  def self.monthly_green_fraction(year, month)
+    consumptions = CaliforniaProduction.where("year = ? and month = ? and renewable_percentage is not null", year, month)
+    return nil if consumptions.count == 0
+    num = consumptions.map { |c| c.renewable_percentage }.sum.to_f
+    den = consumptions.count
+    return nil unless den && den != 0
+    num / den
+  end
 
   def self.get_data(date)
     formatted_date = date.strftime("%Y%m%d")

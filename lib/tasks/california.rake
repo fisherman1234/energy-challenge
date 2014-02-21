@@ -10,7 +10,18 @@ namespace :california do
       end
       date += 1.day
     end
+  end
 
+  desc "Import from dump"
+  task :import_from_dump => :environment do
+
+    CSV.foreach("#{Rails.root}/spec/helpers/assets/california_production.csv", {:headers => true, :header_converters => :symbol}) { |row|
+      r = row.to_hash
+      r.delete(:id)
+      r.delete(:created_at)
+      r.delete(:updated_at)
+      CaliforniaProduction.create(r)
+    }
 
   end
 end
