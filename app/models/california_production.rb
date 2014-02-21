@@ -1,4 +1,4 @@
-require 'CSV'
+require 'csv'
 require 'open-uri'
 class CaliforniaProduction < ActiveRecord::Base
   attr_accessible :biogas, :biomass, :geothermal, :hydro, :imports, :nuclear, :renewables, :small_hydro, :solar, :thermal, :time, :wind_total
