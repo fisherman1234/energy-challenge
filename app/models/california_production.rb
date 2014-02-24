@@ -13,6 +13,7 @@ class CaliforniaProduction < ActiveRecord::Base
     self.year = time.year
     self.month = time.month
     self.day = time.day
+    self.day_of_week = time.wday
     self.hour = time.hour
   end
 
