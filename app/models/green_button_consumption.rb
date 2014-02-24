@@ -8,6 +8,7 @@ class GreenButtonConsumption < ActiveRecord::Base
     self.month = time.month
     self.day = time.day
     self.hour = time.hour
+    self.day_of_week = time.wday
     self.cached_state_renewable_consumption
   end
 
