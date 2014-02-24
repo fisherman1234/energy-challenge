@@ -7,7 +7,7 @@ class CaliforniaProduction < ActiveRecord::Base
   def cache_properties
     if renewables && nuclear && thermal && imports && hydro
       sum = renewables + nuclear + thermal + imports + hydro
-      self.renewable_percentage = renewables.to_f / (renewables + nuclear + thermal + imports + hydro) if sum != 0
+      self.renewable_percentage = (hydro.to_f + renewables.to_f) / (renewables + nuclear + thermal + imports + hydro) if sum != 0
     end
     return unless time
     self.year = time.year
