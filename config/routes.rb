@@ -2,5 +2,6 @@ EnergyChallenge::Application.routes.draw do
   resources :california_production
   resources :green_button
 
-  root :to => "home#index"
+  match '*path' => 'home#index'
+
 end

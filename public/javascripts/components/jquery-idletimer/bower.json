@@ -1,0 +1,9 @@
+{
+  "name": "jquery-idletimer",
+  "version": "0.0.0",
+  "commit": "c042886dd172fbf041f2ed2ac3c8631e388063cc",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikesherov/jquery-idletimer.git"
+  }
+}

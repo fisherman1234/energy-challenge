@@ -1,0 +1,8 @@
+{
+  "name": "jquery-form",
+  "version": "3.32.0-2013.04.09",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/malsup/form.git"
+  }
+}

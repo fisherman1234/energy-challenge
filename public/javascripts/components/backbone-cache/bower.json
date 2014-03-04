@@ -1,0 +1,25 @@
+{
+  "name": "backbone-cache",
+  "version": "0.0.2",
+  "main": "backbone-cache.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/taijinlee/backbone-cache.git"
+  },
+  "dependencies": {
+    "jquery": "~2.0.0",
+    "backbone-amd": "~1.0.0",
+    "jscache": "*",
+    "underscore-amd": "~1.4.4"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "gitHead": "f0087e0e90ab8a911cc5977cde9726b65b5bc03a",
+  "readme": "test",
+  "readmeFilename": "README",
+  "_id": "backbone-cache@0.0.2",
+  "description": "test"
+}

@@ -1,0 +1,60 @@
+{
+  "paths": {
+    "components": "../../components",
+    "lib": "../lib",
+    "shared": "../shared",
+
+
+    "backbone": "../../components/backbone-amd/backbone",
+    "blockui": "../../components/blockui/jquery.blockUI",
+    "bootstrap": "../lib/bootstrap/bootstrap",
+    "bootstrap-timepicker": "../../components/bootstrap-timepicker/js/bootstrap-timepicker",
+    "cookie": "../lib/utilities/cookie",
+    "datepicker": "../../components/bootstrap-datepicker/js/bootstrap-datepicker",
+    "eventcalendar": "../lib/calendar/jquery.eventCalendar",
+    "fastclick": "../../components/fastclick/lib/fastclick",
+    "flexigrid": "../../components/jquery-flexigrid/js/flexigrid",
+    "highcharts": "../lib/highcharts/highcharts",
+    "hl-jquery": "../lib/utilities/hl-jquery",
+    "hl-tooltip": "../lib/utilities/hl-tooltip",
+    "icheck": "../lib/icheck/jquery.icheck",
+    "idle-timer": "../../components/jquery-idletimer/src/idle-timer",
+    "json2": "../../components/json2/json2",
+    "jsonlint": "../../components/jsoneditor/lib/jsonlint/jsonlint",
+    "jquery": "../../components/jquery/jquery",
+    "masked-input": "../lib/masked-input/jquery.maskedinput",
+    "moment": "../../components/moment/moment",
+    "nouislider": "../../components/nouislider/jquery.nouislider",
+    "select2": "../../components/select2/select2",
+    "sidr": "../../components/sidr/jquery.sidr",
+    "text": "../../components/requirejs-text/text",
+    "underscore": "../lib/underscore",
+    "validator": "../lib/validator/validator-edited",
+    "vent": "../lib/vent"
+  },
+
+  "shim": {
+    "backbone": {
+      "deps": ["underscore", "jquery"],
+      "exports": "Backbone"
+    },
+    "blockui": ["jquery"],
+    "bootstrap": ["jquery", "fastclick"],
+    "bootstrap-timepicker": ["jquery"],
+    "datepicker": ["jquery"],
+    "eventcalendar": ["jquery"],
+    "hl-tooltip": ["jquery", "bootstrap"],
+    "flexigrid": ["jquery"],
+    "icheck": ["jquery"],
+    "idle-timer": ["jquery"],
+    "jquery": {
+      "exports": ["jQuery"]
+    },
+    "select2": ["jquery"],
+    "jquery-form": ["jquery"],
+    "masked-input": ["jquery"],
+    "nouislider": ["jquery"],
+    "sidr": ["jquery"]
+  }
+
+}

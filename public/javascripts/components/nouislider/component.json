@@ -1,0 +1,8 @@
+{
+  "name": "nouislider",
+  "version": "3.2.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leongersen/noUiSlider.git"
+  }
+}

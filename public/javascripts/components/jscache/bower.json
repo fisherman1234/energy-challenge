@@ -1,0 +1,9 @@
+{
+  "name": "jscache",
+  "version": "0.0.0",
+  "commit": "ba01cdcf3e8a426782e0c297832b6c81286c9e8a",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/monsur/jscache.git"
+  }
+}
