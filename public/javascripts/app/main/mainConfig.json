@@ -11,9 +11,11 @@
     "bootstrap-timepicker": "../../components/bootstrap-timepicker/js/bootstrap-timepicker",
     "cookie": "../lib/utilities/cookie",
     "datepicker": "../../components/bootstrap-datepicker/js/bootstrap-datepicker",
+    "dx-chart": "../lib/chart-js/dx.chartjs.debug",
     "eventcalendar": "../lib/calendar/jquery.eventCalendar",
     "fastclick": "../../components/fastclick/lib/fastclick",
     "flexigrid": "../../components/jquery-flexigrid/js/flexigrid",
+    "globalize": "../lib/chart-js/globalize.min",
     "highcharts": "../lib/highcharts/highcharts",
     "hl-jquery": "../lib/utilities/hl-jquery",
     "hl-tooltip": "../lib/utilities/hl-tooltip",
@@ -54,7 +56,8 @@
     "jquery-form": ["jquery"],
     "masked-input": ["jquery"],
     "nouislider": ["jquery"],
-    "sidr": ["jquery"]
+    "sidr": ["jquery"],
+    "dx-chart": ["jquery", "globalize"]
   }
 
 }

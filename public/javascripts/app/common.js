@@ -2,6 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'dx-chart',
   'fastclick',
   'moment',
   'masked-input',
