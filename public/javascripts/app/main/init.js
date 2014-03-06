@@ -5,6 +5,7 @@ define([
   './router',
   './layout'
 ], function (_, $, Backbone, Router, LayoutView) {
+  var $body = $('body');
 
   // hide the navbar for mobiles
   setTimeout(function () {
@@ -15,7 +16,7 @@ define([
   }, 20);
 
   new LayoutView().render();
-  var router = new Router($('body'));
+  var router = new Router($body);
   Backbone.history.start({ pushState: true});
 
 

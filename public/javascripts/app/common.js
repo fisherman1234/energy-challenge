@@ -24,7 +24,7 @@ define([
   var $ = window.$.noConflict();
   var _ = window._.noConflict();
   var Backbone = window.Backbone.noConflict();
-
+  window.$ = jQuery;  //for dx-charts...
   //noinspection JSHint
   var fastClick = new FastClick(document.body);
 

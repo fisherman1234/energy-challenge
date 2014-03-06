@@ -2,41 +2,34 @@ define([
   'jquery',
   'underscore',
   'shared/views/base',
-  'dx-chart',
+  './../graphs/forecast',
+  './realTime',
+  './../graphs/currentGreenGauge',
   'text!./home.html'
 
-], function ($, _, BaseView, DxChart, homeTemplate) {
+], function ($, _, BaseView, ForecastView, RealTimeView, CurrentGreenGaugeView, homeTemplate) {
 
   return BaseView.extend({
     initialize: function (args) {
+      this.forecast = new ForecastView();
+      this.realTime = new RealTimeView();
+      this.currentGreenGauge = new CurrentGreenGaugeView();
     },
 
     render: function () {
       this.$el.html(homeTemplate);
-      this.showGraphs();
+
+      var realTimeOptions = {
+        currentConsumptionOptions: {baseConsumption: 13, currentConsumption: 23, peakConsumption: 34},
+        currentGreenGauge: {value: 1}
+      };
+
+      this.forecast.setElement(this.$("#forecast")).render();
+      this.realTime.setElement(this.$("#real-time")).render(realTimeOptions);
+      this.currentGreenGauge.setElement(this.$("#current-green-gauge")).render(realTimeOptions.currentGreenGauge);
+
       return this;
-    },
-    showGraphs: _.debounce(function(){
-      this.$("#chartContainer").dxBarGauge({
-        startValue: 0,
-        endValue: 100,
-        values: [47.27, 65.32, 84.59, 71.86],
-        label: {
-          indent: 30,
-          format: 'fixedPoint',
-          precision: 1,
-          customizeText: function (arg) {
-            return arg.valueText + ' %';
-          }
-        },
-        title: {
-          text: "Series' Ratings",
-          font: {
-            size: 28
-          }
-        }
-      });
-    }, 100)
+    }
 
   });
 

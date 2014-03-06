@@ -11,7 +11,7 @@
     "bootstrap-timepicker": "../../components/bootstrap-timepicker/js/bootstrap-timepicker",
     "cookie": "../lib/utilities/cookie",
     "datepicker": "../../components/bootstrap-datepicker/js/bootstrap-datepicker",
-    "dx-chart": "../lib/chart-js/dx.chartjs.debug",
+    "dx-chart": "../lib/chart-js/dx.chartjs",
     "eventcalendar": "../lib/calendar/jquery.eventCalendar",
     "fastclick": "../../components/fastclick/lib/fastclick",
     "flexigrid": "../../components/jquery-flexigrid/js/flexigrid",

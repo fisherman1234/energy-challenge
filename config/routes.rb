@@ -1,7 +1,11 @@
 EnergyChallenge::Application.routes.draw do
-  resources :california_production
-  resources :green_button
+  scope "api" do
+    resources :california_production
+    resources :green_button
+  end
+
 
   match '*path' => 'home#index'
+  match '/' => 'home#index'
 
 end
