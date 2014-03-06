@@ -1,0 +1,1 @@
+define(["underscore","backbone","models/greenButtonConsumption"],function(e,t,n){var r=t.Collection.extend({model:n,url:"/api/green_button"});return r});

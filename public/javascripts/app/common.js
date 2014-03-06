@@ -3,7 +3,6 @@ define([
   'underscore',
   'backbone',
   'dx-chart',
-  'fastclick',
   'moment',
   'masked-input',
   'sidr',
@@ -26,7 +25,7 @@ define([
   var Backbone = window.Backbone.noConflict();
   window.$ = jQuery;  //for dx-charts...
   //noinspection JSHint
-  var fastClick = new FastClick(document.body);
+  //var fastClick = new FastClick(document.body);
 
   window.Validator.prototype.error = function(msg) { this._errors.push(new Error(msg)); return this; };
 

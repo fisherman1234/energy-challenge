@@ -1,0 +1,1 @@
+define(["jquery","underscore","shared/views/base","text!./layout.html"],function(e,t,n,r){var i=n.extend({el:"body",initialize:function(){},events:{"touchmove .scrollable":"onScrollableTouch"},render:function(){return this.$el.html(r),this},onScrollableTouch:function(e){e.stopPropagation()}});return i});
