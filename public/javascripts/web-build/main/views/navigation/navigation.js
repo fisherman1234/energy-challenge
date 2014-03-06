@@ -1,0 +1,1 @@
+define(["backbone","jquery","underscore","shared/views/base","text!./navigation.html"],function(e,t,n,r,i){return r.extend({initialize:function(e){},render:function(e){return this.$el.html(n.template(i,e)),e.hideBack&&this.$(".previous-page").hide(),this},events:{"click .previous-page":"onPreviousPageClick"},onPreviousPageClick:function(){e.history.navigate("/",!0)}})});

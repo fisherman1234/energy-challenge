@@ -31,11 +31,23 @@ namespace :deploy do
       run "ln -nfs #{File.join(shared_path, config[0])} #{File.join(release_path, config[1])}"
     end
   end
+
+  task :restart do
+    run "#{sudo} service nginx #{command}"
+  end
+end
+
+namespace :client_build do
+  desc "Build the client js files"
+  task :build do
+    output = run_locally "cd public/javascripts; node build.js"
+    puts "OUTPUT: " + output
+  end
 end
 
 after "deploy:update_code", "deploy:setup_symlinks"
 after "deploy:update_code", "deploy:migrate"
-
+after "deploy:update_code", "deploy:restart"
 
 
 namespace :remote do

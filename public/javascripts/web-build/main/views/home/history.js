@@ -1,0 +1,1 @@
+define(["jquery","underscore","shared/views/base","./../graphs/greenButtonConsumption","text!./history.html"],function(e,t,n,r,i){return n.extend({initialize:function(e){this.consumption=new r},render:function(){return this.$el.html(i),this.consumption.setElement(this.$("#full-history")).render(),this}})});

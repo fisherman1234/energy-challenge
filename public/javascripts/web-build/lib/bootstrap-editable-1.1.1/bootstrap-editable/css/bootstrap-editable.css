@@ -1,7 +1,4 @@
-/*! X-editable - v1.1.1 
-* In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery
-* http://github.com/vitalets/x-editable
-* Copyright (c) 2012 Vitaliy Potapov; Licensed MIT */
+
 .editableform {
     margin-bottom: 0; 
 }
@@ -107,15 +104,6 @@ a.editable-click.editable-disabled:hover {
 .editable-unsaved:after {
 }
 
-/*!
- * Datepicker for Bootstrap
- *
- * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- */
 .datepicker {
   padding: 4px;
   margin-top: 1px;
