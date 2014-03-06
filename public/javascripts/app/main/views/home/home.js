@@ -48,7 +48,9 @@ define([
     },
     onSectionClicked: function(e){
       var target = $(e.currentTarget).attr('data-target');
-      Backbone.history.navigate(target, true);
+      if (target){
+        Backbone.history.navigate(target, true)
+      }
     }
 
   });

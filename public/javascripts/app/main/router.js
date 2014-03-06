@@ -3,14 +3,16 @@ define([
   'underscore',
   'backbone',
   'views/home/home',
+  'views/login/login',
   'views/home/breakdown',
   'views/home/history',
   'views/navigation/navigation'
-], function ($, _, Backbone, HomeView, BreakDownView, HistoryView, NavigationView) {
+], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView) {
 
   return Backbone.Router.extend({
     routes: {
-      '': 'start',
+      '': 'root',
+      'home': 'home',
       'breakdown': 'realTimeBreakdown',
       'history': 'history',
       '*catchAll': 'notFound'
@@ -23,7 +25,8 @@ define([
         home: { view: new HomeView(), rendered: false },
         breakdown: { view: new BreakDownView(), rendered: false },
         history: { view: new HistoryView(), rendered:false },
-        navigation: { view: new NavigationView(), rendered: false}
+        navigation: { view: new NavigationView(), rendered: false},
+        login: {view: new LoginView(), rendered: false}
       };
 
 
@@ -46,7 +49,7 @@ define([
 
       // render when necessary
       if (forced || !viewConfig.rendered) {
-        var $container = $('<div id="pane-contents" class="paneContents-' + viewKey + '"></div>');
+        var $container = $('<div id="pane-contents" class="height-100 paneContents-' + viewKey + '"></div>');
         viewConfig.view.setElement($container).render(options);
       }
 
@@ -54,13 +57,28 @@ define([
       viewConfig.rendered = true;
       this.views[viewKey] = viewConfig;
     },
-    start: function(){
+    home: function(){
       this.renderView(this.$leftPane, 'home', {}, true);
       this.renderView(this.$navBar, 'navigation', {title: 'Home', hideBack: true}, true);
+      Backbone.history.navigate('/');
+      this.$navBar.show()
+
 
     },
+    root: function(){
+      if (this.isLoggedIn){
+        this.home();
+      } else {
+        this.isLoggedIn = true;
+        this.login();
+      }
+    },
+    login: function () {
+      this.renderView(this.$leftPane, 'login', {}, true);
+      this.$navBar.hide()
+    },
     notFound: function(){
-      this.start();
+      this.root();
     },
     realTimeBreakdown: function(){
       this.renderView(this.$leftPane, 'breakdown', {}, true);

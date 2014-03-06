@@ -1,7 +1,8 @@
 class GreenButtonController < ApplicationController
   def index
-    last_day = Time.now.strftime('%j').to_i
-    first_day = last_day - 31;
+    last_day = params[:last_day] || Time.now.strftime('%j').to_i
+    duration = params[:duration] || 6 || 31
+    first_day = last_day - duration;
     if first_day <= 0
       r1 = (1..last_day).to_a
       r2 = ((366 + first_day)..366).to_a
@@ -37,12 +38,16 @@ class GreenButtonController < ApplicationController
         result["consumption"] = 3
       end
 
-      if l.cached_state_renewable_consumption < min_prod + step_prod
-        result["fraction"] = 1
-      elsif l.cached_state_renewable_consumption < min_prod + 2 * step_prod
+      if !l.cached_state_renewable_consumption
         result["fraction"] = 2
       else
-        result["fraction"] = 3
+        if l.cached_state_renewable_consumption < min_prod + step_prod
+          result["fraction"] = 1
+        elsif l.cached_state_renewable_consumption < min_prod + 2 * step_prod
+          result["fraction"] = 2
+        else
+          result["fraction"] = 3
+        end
       end
 
       result

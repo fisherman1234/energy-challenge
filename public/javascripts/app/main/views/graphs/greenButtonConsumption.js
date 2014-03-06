@@ -13,7 +13,6 @@ define([
 
     render: function (options) {
       this.options = options;
-      this.$el.width(1000);
       this.consumption.fetch();
       return this;
     },
@@ -23,7 +22,7 @@ define([
       $table.addClass('punchard');
       var curDay;
       $row = $('<tr/>');
-
+      var curDayOffset = 0;
       for (var i = 0; i < 24; i++){
         var $cell = $("<th/>");
         $cell.html(i);
@@ -38,13 +37,27 @@ define([
         if (day !== curDay){
           curDay = day;
           $row = $('<tr/>');
+          var $cell = $("<td class='rowhead' colspan='24'/>");
+          $cell.html(moment().add('days', curDayOffset).format('MMM, ddd DD'));
+          $row.append($cell);
           $table.append($row);
+
+          $row = $('<tr/>');
+          $table.append($row);
+          curDayOffset -= 1;
         }
+
+
         var $cell = $("<td/>");
+
+        if (curDayOffset === -1 && model.get('hour') >= moment().hour()) {
+          return $row.append($cell); // we do not display post hours
+        }
+
         var colorMap = {
-          1 : "#ebf1df",
-          2 : "#c4d69e",
-          3 : "#779241"
+          1 : "rgba(211, 220, 90, 0.2)",
+          2 : "rgba(180, 211, 79, 0.53)",
+          3 : "rgba(119, 146, 65, 0.7)"
         };
 
         $cell.css('background-color', colorMap[model.get('fraction')]);
@@ -52,10 +65,16 @@ define([
         $cell.html('&#9679;');
         $cell.css('font-size', fontwidth + 'px');
         if (model.get('consumption') == 3 && model.get('fraction') == 1){
-          $cell.addClass('gray-hour')
+          $cell.html('<i class="icon-flag"/>');
+          $cell.addClass('gray-hour');
+          $cell.css('font-size', 10 + 'px');
+
         }
         if (model.get('consumption') == 3 && model.get('fraction') == 3){
-          $cell.addClass('green-hour')
+          $cell.html('<i class="icon-star"/>');
+          $cell.addClass('green-hour');
+          $cell.css('font-size', 10 + 'px');
+
         }
         $row.append($cell);
 

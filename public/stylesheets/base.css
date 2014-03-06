@@ -6951,7 +6951,6 @@ body {
 }
 .current-date-marker {
   position: absolute;
-  left: 20%;
   margin-top: 20px;
   z-index: 2;
 }
@@ -6977,7 +6976,7 @@ body {
 }
 .bar.bar-green-hour {
   background-image: none;
-  background-color: #b4d34f;
+  background-color: #779241;
 }
 .bar.bar-gray-hour {
   background-image: none;
@@ -6998,6 +6997,7 @@ body {
   width: 10px;
   overflow: hidden;
   text-align: center;
+  color: gray;
 }
 .punchard th {
   font-size: 9px;
@@ -7005,10 +7005,16 @@ body {
   font-weight: normal;
 }
 .punchard td.green-hour {
-  color: #E2FFE2;
+  color: white;
 }
 .punchard td.gray-hour {
   color: orange;
+}
+.punchard .rowhead {
+  text-align: left;
+  font-size: 8px;
+  line-height: 8px;
+  height: 8px;
 }
 #navigation {
   height: 30px;
@@ -7028,4 +7034,38 @@ body {
 }
 .history-container {
   padding-left: 7px;
+}
+html,
+body,
+.height-100 {
+  height: 100%;
+}
+.welcome {
+  background-color: #C9D10B;
+}
+.welcome-inner {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.welcome-content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.welcome-content h3,
+.welcome-content h4 {
+  font-weight: normal;
+}
+.green-low {
+  background-color: #d3dc5a;
+}
+.green-medium {
+  background-color: #b4d34f;
+}
+.green-high {
+  background-color: #779241;
+}
+.yellow-med {
+  background-color: #f1e064;
 }

@@ -45,7 +45,6 @@ body {
 
 .current-date-marker{
   position: absolute;
-  left: 20%;
   margin-top: 20px;
   z-index: 2;
 }
@@ -74,7 +73,7 @@ body {
 
 .bar.bar-green-hour{
   background-image: none;
-  background-color: #b4d34f;
+  background-color: #779241;
 }
 
 .bar.bar-gray-hour {
@@ -104,6 +103,7 @@ body {
     width: 10px;
     overflow: hidden;
     text-align: center;
+    color: gray;
   }
   th {
     font-size: 9px;
@@ -111,10 +111,16 @@ body {
     font-weight: normal;
   }
   td.green-hour{
-    color: #E2FFE2;
+    color: white;
   }
   td.gray-hour {
     color: orange;
+  }
+  .rowhead{
+    text-align: left;
+    font-size: 8px;
+    line-height: 8px;
+    height: 8px;
   }
 }
 
@@ -138,4 +144,41 @@ body {
 
 .history-container{
   padding-left: 7px;
+}
+
+html, body, .height-100{
+  height: 100%;
+}
+
+.welcome{
+  background-color: #C9D10B;
+}
+
+.welcome-inner{
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.welcome-content{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  h3, h4 {
+    font-weight: normal;
+  }
+}
+
+
+.green-low{
+  background-color: #d3dc5a;
+}
+.green-medium{
+  background-color: #b4d34f;
+}
+.green-high{
+  background-color: #779241;
+}
+.yellow-med{
+  background-color: #f1e064;
 }

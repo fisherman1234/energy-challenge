@@ -33,7 +33,7 @@ namespace :deploy do
   end
 
   task :restart do
-    run "#{sudo} service nginx #{command}"
+    run "#{sudo} service nginx restart"
   end
 end
 

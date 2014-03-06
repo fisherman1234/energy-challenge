@@ -22,7 +22,7 @@ define([
       'click .previous-page': 'onPreviousPageClick'
     },
     onPreviousPageClick: function(){
-      Backbone.history.navigate('/', true);
+      window.history.back()
     }
 
   });
