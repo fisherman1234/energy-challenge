@@ -2,23 +2,28 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/home/home'
-], function ($, _, Backbone, HomeView) {
+  'views/home/home',
+  'views/home/breakdown',
+  'views/home/history',
+  'views/navigation/navigation'
+], function ($, _, Backbone, HomeView, BreakDownView, HistoryView, NavigationView) {
 
   return Backbone.Router.extend({
     routes: {
-      'start': 'start',
+      '': 'start',
+      'breakdown': 'realTimeBreakdown',
+      'history': 'history',
       '*catchAll': 'notFound'
     },
     initialize: function ($container) {
       this.$leftPane = $container.find('#left-pane-inner');
-      this.$rightPane = $container.find('#right-pane-inner');
-      this.$leftPaneOuter = $container.find('#left-pane');
-      this.$rightPaneOuter = $container.find('#right-pane');
-      this.$navBar = $container.find('#nav_bar');
+      this.$navBar = $container.find('#navigation');
 
       this.views = {
-        home: { view: new HomeView(), rendered: false }
+        home: { view: new HomeView(), rendered: false },
+        breakdown: { view: new BreakDownView(), rendered: false },
+        history: { view: new HistoryView(), rendered:false },
+        navigation: { view: new NavigationView(), rendered: false}
       };
 
 
@@ -51,9 +56,20 @@ define([
     },
     start: function(){
       this.renderView(this.$leftPane, 'home', {}, true);
+      this.renderView(this.$navBar, 'navigation', {title: 'Home', hideBack: true}, true);
+
     },
     notFound: function(){
-      console.log('not found');
+      this.start();
+    },
+    realTimeBreakdown: function(){
+      this.renderView(this.$leftPane, 'breakdown', {}, true);
+      this.renderView(this.$navBar, 'navigation', {title: 'Real Time'}, true);
+    },
+    history: function(){
+      this.renderView(this.$leftPane, 'history', {}, true);
+      this.renderView(this.$navBar, 'navigation', {title: 'History'}, true);
+
     }
 
   });

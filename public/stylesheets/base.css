@@ -6993,3 +6993,39 @@ body {
 #current-consumption {
   margin-top: -10px;
 }
+.punchard td {
+  height: 10px;
+  width: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+.punchard th {
+  font-size: 9px;
+  text-align: center;
+  font-weight: normal;
+}
+.punchard td.green-hour {
+  color: #E2FFE2;
+}
+.punchard td.gray-hour {
+  color: orange;
+}
+#navigation {
+  height: 30px;
+  margin-bottom: 10px;
+  background-color: #C9D10B;
+  padding: 10px;
+  text-align: center;
+  padding-bottom: 0;
+  position: relative;
+}
+#navigation .previous-page {
+  position: absolute;
+  left: 10px;
+}
+#navigation .previous-page i {
+  font-size: 12px;
+}
+.history-container {
+  padding-left: 7px;
+}
