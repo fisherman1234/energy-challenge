@@ -51,6 +51,8 @@ main/views/graphs/currentGreenGauge.js
 main/views/graphs/scores.js
 text!views/home/home.html
 main/views/home/home.js
+text!views/login/login.html
+main/views/login/login.js
 main/views/graphs/realTimeBreakdown.js
 text!views/home/breakdown.html
 main/views/home/breakdown.js
