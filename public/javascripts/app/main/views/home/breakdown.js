@@ -1,11 +1,12 @@
 define([
   'jquery',
   'underscore',
+  'shared/collections/modelsCache',
   'shared/views/base',
   './../graphs/realTimeBreakdown',
   'text!./breakdown.html'
 
-], function ($, _, BaseView, BreakdownView, breakdownTemplate) {
+], function ($, _, modelsCache, BaseView, BreakdownView, breakdownTemplate) {
 
   return BaseView.extend({
     initialize: function (args) {
@@ -14,12 +15,7 @@ define([
 
     render: function () {
       this.$el.html(breakdownTemplate);
-      var options = [
-        {name: "Solar", value: 1234},
-        {name: "Wind", value: 3545},
-        {name: "Other renewable", value: 125},
-        {name: "Non renewable", value: 5234}
-      ];
+      var options = modelsCache.home.get('real_time_prod').details;
       this.breakdown.setElement(this.$el).render(options);
       return this;
     }

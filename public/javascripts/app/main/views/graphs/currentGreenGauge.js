@@ -11,7 +11,7 @@ define([
     render: function (options) {
       this.options = options;
       this.doRender();
-      this.$el.height(40);
+      this.$el.height(100);
       this.graphOptions = {
         0: {color: "g", label: ""},
         1: {color: "#d3dc5a", label: "low"},
@@ -24,6 +24,7 @@ define([
     doRender: _.debounce(function () {
       var self = this;
       this.$el.dxLinearGauge({
+        geometry: { orientation: 'vertical' },
         rangeContainer: {
           ranges: [
             { startValue: 0, endValue: 1, color: '#d3dc5a' },
@@ -43,8 +44,11 @@ define([
             }
           }
         },
-        valueIndicator: { type: 'circle'},
-        value: this.options.value - 0.5
+        value: self.options.current - 0.5,
+        title: {
+          text: 'Green production',
+          font: { size: 12 }
+        }
       });
 
     }, 100)

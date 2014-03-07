@@ -58,7 +58,7 @@ define([
       this.views[viewKey] = viewConfig;
     },
     home: function(){
-      this.renderView(this.$leftPane, 'home', {}, true);
+      this.renderView(this.$leftPane, 'home');
       this.renderView(this.$navBar, 'navigation', {title: 'Home', hideBack: true}, true);
       Backbone.history.navigate('/');
       this.$navBar.show()

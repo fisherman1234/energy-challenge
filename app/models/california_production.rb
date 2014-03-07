@@ -89,4 +89,42 @@ class CaliforniaProduction < ActiveRecord::Base
 
     result
   end
+
+  def self.get_real_time
+    output = {:details => []}
+    html = open("http://content.caiso.com/outlook/SP/renewables.html") { |f| f.read }
+    doc = Nokogiri::HTML(html)
+    totalRenewable = doc.css("#totalrenewables").first.children.text.gsub(' MW', '').to_f
+    solar = doc.css("#currentsolar").first.children.text.gsub(' MW', '').to_f
+    wind = doc.css("#currentwind").first.children.text.gsub(' MW', '').to_f
+    raw_csv = open("http://content.caiso.com/outlook/systemstatus.csv") { |f| f.read }
+
+    parsed_file = CSV.parse(raw_csv, {:col_sep => ","}).to_a
+    total_prod = parsed_file[1][1].to_f
+    percentage = totalRenewable / (total_prod + totalRenewable)
+
+
+    productions = CaliforniaProduction.where("month = ?", DateTime.now.month)
+
+    min = productions.minimum('renewable_percentage')
+    max = productions.maximum('renewable_percentage')
+    step = (max - min) / 3
+
+    if percentage < min + step
+      result = 1
+    elsif percentage < min + 2 * step
+      result = 2
+    else
+      result = 3
+    end
+
+    output[:details].push({:name => 'Other Renewable', :value => totalRenewable - (wind+solar)})
+    output[:details].push({:name => 'Non Renewable', :value => total_prod - totalRenewable})
+    output[:details].push({:name => 'Solar', :value => solar})
+    output[:details].push({:name => 'Wind', :value => wind})
+
+    output[:current] = result
+
+    output
+  end
 end

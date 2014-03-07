@@ -6941,6 +6941,10 @@ body {
   margin-right: 20px;
   margin-left: 20px;
 }
+.history-container {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dad7d7;
+}
 .section:after {
   content: ">";
   display: block;
@@ -6980,7 +6984,7 @@ body {
 }
 .bar.bar-gray-hour {
   background-image: none;
-  background-color: #C9C6B6;
+  background-color: #edbd00;
 }
 .progress {
   position: relative;
@@ -6989,11 +6993,8 @@ body {
 .legend {
   font-size: 10px;
 }
-#current-consumption {
-  margin-top: -10px;
-}
 .punchard td {
-  height: 10px;
+  height: 22px;
   width: 10px;
   overflow: hidden;
   text-align: center;
@@ -7058,14 +7059,43 @@ body,
   font-weight: normal;
 }
 .green-low {
-  background-color: #d3dc5a;
+  color: #d3dc5a;
 }
 .green-medium {
-  background-color: #b4d34f;
+  color: #b4d34f;
 }
 .green-high {
-  background-color: #779241;
+  color: #779241;
+}
+.green-dark {
+  color: #779241;
 }
 .yellow-med {
-  background-color: #f1e064;
+  color: #f1e064;
+}
+.tip {
+  font-size: 11px;
+  margin: 0;
+  margin-left: 14px;
+}
+.see-more {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.history-container .legend {
+  border-top: 1px solid gray;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.history-container .legend .item {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+.history-container .legend .value {
+  padding-left: 20px;
 }

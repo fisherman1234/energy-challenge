@@ -24,8 +24,8 @@ define([
 
         },
         series: [
-          { valueField: "grayHours", name: "CO2 Hours", color: "#C9C6B6" },
-          { valueField: "greenHours", name: "Green Hours", color: "#779241" }
+          { valueField: "flags", name: "CO2 Hours", color: "#edbd00" },
+          { valueField: "stars", name: "Green Hours", color: "#779241" }
         ],
         legend: {
           verticalAlignment: "center",

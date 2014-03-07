@@ -16,8 +16,8 @@ define([
       this.settings = {
         "Solar": {color: "#779241"},
         "Wind": {color: "#d3dc5a"},
-        "Other renewable": {color: "#b4d34f"},
-        "Non renewable": {color: "#C9C6B6"}
+        "Other Renewable": {color: "#b4d34f"},
+        "Non Renewable": {color: "#C9C6B6"}
       };
 
       return this;
