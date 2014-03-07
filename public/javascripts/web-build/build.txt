@@ -43,11 +43,13 @@ main/../common.js
 main/init.js
 ----------------
 shared/views/base.js
+shared/models/home.js
+shared/collections/modelsCache.js
 main/views/graphs/forecast.js
 main/views/graphs/currentConsumption.js
+main/views/graphs/currentGreenGauge.js
 text!views/home/realTime.html
 main/views/home/realTime.js
-main/views/graphs/currentGreenGauge.js
 main/views/graphs/scores.js
 text!views/home/home.html
 main/views/home/home.js
@@ -60,6 +62,7 @@ main/models/greenButtonConsumption.js
 main/collections/greenButtonConsumptions.js
 main/views/graphs/greenButtonConsumption.js
 text!views/home/history.html
+text!views/home/goalData.html
 main/views/home/history.js
 text!views/navigation/navigation.html
 main/views/navigation/navigation.js
