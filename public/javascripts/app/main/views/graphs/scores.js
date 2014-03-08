@@ -15,9 +15,8 @@ define([
       return this;
     },
     doRender: _.debounce(function () {
-
-      this.$el.dxChart({
-        dataSource: this.options,
+      var base = {
+        dataSource: this.options.data,
         commonSeriesSettings: {
           argumentField: "month",
           type: "bar"
@@ -31,7 +30,25 @@ define([
           verticalAlignment: "center",
           horizontalAlignment: "center"
         }
-      });
+      };
+
+      var flagData = _.pluck(this.options.data, "flags");
+      var starData = _.pluck(this.options.data, "stars");
+
+      if (this.options.goalsTarget){
+        var additionalOptions = {valueAxis: { constantLines: this.options.goalsTarget }};
+        base = _.extend(base, additionalOptions);
+        flagData.push(this.options.goalsTarget[0].value);
+        starData.push(this.options.goalsTarget[1].value + 20);
+      }
+      base.valueAxis = base.valueAxis || {};
+
+      base.valueAxis.min = _.min(flagData) - 10;
+      base.valueAxis.max = _.max(starData) + 10;
+
+      this.chart = this.$el.dxChart(base);
+
+
 
     }, 100)
 

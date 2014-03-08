@@ -1,4 +1,5 @@
 define([
+  'backbone',
   'jquery',
   'underscore',
   'shared/collections/modelsCache',
@@ -7,12 +8,15 @@ define([
   'text!./history.html',
   'text!./goalData.html'
 
-], function ($, _, modelsCache, BaseView, GreenButtonConsumptionView, historyViewTemplate, goalDataTemplate) {
+], function (Backbone, $, _, modelsCache, BaseView, GreenButtonConsumptionView, historyViewTemplate, goalDataTemplate) {
 
   return BaseView.extend({
     initialize: function (args) {
       this.consumption = new GreenButtonConsumptionView();
       this.consumption.on('rendered', this.postRender, this);
+    },
+    events: {
+      'click .section': 'onSectionClicked'
     },
 
     render: function () {
@@ -32,6 +36,12 @@ define([
         flagsTotal: -modelsCache.home.get('monthly_target').flags
       }
       this.$("#goal-data").html(_.template(goalDataTemplate, data));
+    },
+    onSectionClicked: function (e) {
+      var target = $(e.currentTarget).attr('data-target');
+      if (target) {
+        Backbone.history.navigate(target, true)
+      }
     }
 
   });

@@ -7,8 +7,10 @@ define([
   'views/home/breakdown',
   'views/home/history',
   'views/navigation/navigation',
-  'views/tutorials/tutorials'
-], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView) {
+  'views/tutorials/tutorials',
+  'views/goals/goals'
+
+], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView, GoalView) {
 
   return Backbone.Router.extend({
     routes: {
@@ -17,6 +19,7 @@ define([
       'tutorial': 'tutorial',
       'breakdown': 'realTimeBreakdown',
       'history': 'history',
+      'goals': 'goals',
       '*catchAll': 'notFound'
     },
     initialize: function ($container) {
@@ -29,7 +32,8 @@ define([
         history: { view: new HistoryView(), rendered:false },
         navigation: { view: new NavigationView(), rendered: false},
         login: {view: new LoginView(), rendered: false},
-        tutorial: {view: new TutorialView(), rendered: false}
+        tutorial: {view: new TutorialView(), rendered: false},
+        goals: {view: new GoalView(), rendered: false}
       };
 
 
@@ -46,9 +50,7 @@ define([
         throw new Error("View not found " + viewKey);
       }
 
-      if (_.isMobile()) {
-        window.scrollTo(0, 1);
-      }
+      window.scrollTo(0);
 
       // render when necessary
       if (forced || !viewConfig.rendered) {
@@ -86,6 +88,10 @@ define([
     tutorial: function(){
       this.renderView(this.$leftPane, 'tutorial', {}, true);
       this.$navBar.hide()
+    },
+    goals: function(){
+      this.renderView(this.$leftPane, 'goals', {}, true);
+      this.renderView(this.$navBar, 'navigation', {title: 'Goals'}, true);
     },
     notFound: function(){
       this.root();

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224225045) do
+ActiveRecord::Schema.define(:version => 20140308045748) do
 
   create_table "california_productions", :force => true do |t|
     t.datetime "time"
@@ -49,5 +49,15 @@ ActiveRecord::Schema.define(:version => 20140224225045) do
     t.decimal  "cached_state_renewable_consumption"
     t.integer  "day_of_week"
   end
+
+  create_table "histo_green_stat", :force => true do |t|
+    t.integer "month"
+    t.string  "weekday", :limit => 20
+    t.integer "hour"
+    t.decimal "green",                 :precision => 10, :scale => 3
+  end
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'json' for column 'goals'
 
 end

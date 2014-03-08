@@ -20,7 +20,6 @@ define([
       this.scores = new ScoreView();
       modelsCache.home.on('sync', this.doRender, this);
     },
-
     events: {
       'click .section': 'onSectionClicked'
     },
@@ -60,19 +59,20 @@ define([
         modelsCache.home.get('scores')[4],
         modelsCache.home.get('scores')[5]
       ];
+      var graphData = {data: scores};
 
       var feedbackKey = "c" + realTimeOptions.currentConsumption.current + "p" + realTimeOptions.currentGreenProduction.current;
 
       var starStat = modelsCache.home.get('scores')[0].stars / modelsCache.home.get('monthly_target').stars;
-      this.$(".bar-green-hour").width(100 * starStat);
+      this.$(".bar-green-hour").css('width', Math.min(100 * starStat, 100) + '%');
       var flagStat = modelsCache.home.get('scores')[0].flags / modelsCache.home.get('monthly_target').flags;
-      this.$(".bar-gray-hour").width(100 * flagStat);
+      this.$(".bar-gray-hour").css('width', Math.min(100 * flagStat, 100) + '%');
 
       this.$("#real-time-tip").html(feedbacks[feedbackKey]);
       this.forecast.setElement(this.$("#forecast")).render(modelsCache.home.get('forecast'));
       this.realTime.setElement(this.$("#real-time")).render(realTimeOptions);
       //this.currentGreenGauge.setElement(this.$("#current-green-gauge")).render(realTimeOptions.currentGreenGauge);
-      this.scores.setElement(this.$("#scores")).render(scores);
+      this.scores.setElement(this.$("#scores")).render(graphData);
 
     },
     onSectionClicked: function(e){
