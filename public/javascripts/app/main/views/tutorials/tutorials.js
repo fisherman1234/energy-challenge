@@ -31,7 +31,8 @@ define([
       'slid': 'onSlid'
     },
     openApp: function(){
-      Backbone.history.navigate('/home', true);
+      localStorage.setItem("tutorialCompleted", true);
+      Backbone.history.navigate('/', true);
     },
     onSlid: function(e){
       this.slidCount += 1;
