@@ -8,9 +8,10 @@ define([
   'views/home/history',
   'views/navigation/navigation',
   'views/tutorials/tutorials',
-  'views/goals/goals'
+  'views/goals/goals',
+  'views/advice/advice'
 
-], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView, GoalView) {
+], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView, GoalView, AdviceView) {
 
   return Backbone.Router.extend({
     routes: {
@@ -20,6 +21,7 @@ define([
       'breakdown': 'realTimeBreakdown',
       'history': 'history',
       'goals': 'goals',
+      'advice': 'advice',
       '*catchAll': 'notFound'
     },
     initialize: function ($container) {
@@ -33,7 +35,8 @@ define([
         navigation: { view: new NavigationView(), rendered: false},
         login: {view: new LoginView(), rendered: false},
         tutorial: {view: new TutorialView(), rendered: false},
-        goals: {view: new GoalView(), rendered: false}
+        goals: {view: new GoalView(), rendered: false},
+        advice: {view: new AdviceView(), rendered: false}
       };
 
 
@@ -95,6 +98,10 @@ define([
     },
     notFound: function(){
       this.root();
+    },
+    advice: function(){
+      this.renderView(this.$leftPane, 'advice', {}, true);
+      this.renderView(this.$navBar, 'navigation', {title: 'Tips'}, true);
     },
     realTimeBreakdown: function(){
       this.renderView(this.$leftPane, 'breakdown', {}, true);
