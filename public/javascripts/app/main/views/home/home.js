@@ -69,7 +69,7 @@ define([
       this.$(".bar-gray-hour").width(100 * flagStat);
 
       this.$("#real-time-tip").html(feedbacks[feedbackKey]);
-      this.forecast.setElement(this.$("#forecast")).render();
+      this.forecast.setElement(this.$("#forecast")).render(modelsCache.home.get('forecast'));
       this.realTime.setElement(this.$("#real-time")).render(realTimeOptions);
       //this.currentGreenGauge.setElement(this.$("#current-green-gauge")).render(realTimeOptions.currentGreenGauge);
       this.scores.setElement(this.$("#scores")).render(scores);

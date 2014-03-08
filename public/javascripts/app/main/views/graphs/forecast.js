@@ -11,15 +11,6 @@ define([
     render: function (options) {
       this.options = options;
 
-      this.options = [
-        {hour: 6, forecast: 1},
-        {hour: 7, forecast: 2},
-        {hour: 8, forecast: 3},
-        {hour: 9, forecast: 1},
-        {hour: 10, forecast: 2},
-        {hour: 11, forecast: 1},
-        {hour: 12, forecast: 3}
-      ];
       this.colorMap = {
         1: "#d3dc5a",
         2: "#b4d34f",

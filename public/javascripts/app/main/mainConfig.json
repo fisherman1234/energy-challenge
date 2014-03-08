@@ -23,7 +23,9 @@
     "idle-timer": "../../components/jquery-idletimer/src/idle-timer",
     "json2": "../../components/json2/json2",
     "jsonlint": "../../components/jsoneditor/lib/jsonlint/jsonlint",
+    "jstime-zone": "../../components/jsTimezoneDetect/jstz",
     "jquery": "../../components/jquery/jquery",
+    "jquery-cookie": "../../components/jquery.cookie/jquery.cookie",
     "masked-input": "../lib/masked-input/jquery.maskedinput",
     "moment": "../../components/moment/moment",
     "nouislider": "../../components/nouislider/jquery.nouislider",
@@ -52,6 +54,7 @@
     "jquery": {
       "exports": ["jQuery"]
     },
+    "jquery-cookie": ["jquery"],
     "select2": ["jquery"],
     "jquery-form": ["jquery"],
     "masked-input": ["jquery"],

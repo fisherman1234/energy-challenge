@@ -10,6 +10,7 @@ define([
   'bootstrap-timepicker',
   'datepicker',
   'nouislider',
+  'jquery-cookie',
   'hl-jquery',
   'hl-tooltip',
   'idle-timer',
