@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   def set_time_zone
     old_time_zone = Time.zone
     Time.zone = browser_timezone if browser_timezone.present?
-    puts Time.zone
     yield
   ensure
     Time.zone = old_time_zone

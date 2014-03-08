@@ -104,7 +104,7 @@ class CaliforniaProduction < ActiveRecord::Base
     percentage = totalRenewable / (total_prod + totalRenewable)
 
 
-    productions = CaliforniaProduction.where("month = ?", DateTime.now.month)
+    productions = CaliforniaProduction.where("month = ?", Time.now.in_time_zone.month)
 
     min = productions.minimum('renewable_percentage')
     max = productions.maximum('renewable_percentage')

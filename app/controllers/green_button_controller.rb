@@ -1,6 +1,6 @@
 class GreenButtonController < ApplicationController
   def index
-    month = params[:month] || Time.now.strftime('%m').to_i
+    month = params[:month] || Time.now.in_time_zone.strftime('%m').to_i
     user_id = params["user_id"].to_s
 
     puts "111"

@@ -2,10 +2,7 @@ class HistoGreenStat < ActiveRecord::Base
   set_table_name "histo_green_stat"
 
   def self.get_forecast
-    puts "----- get_forecast"
-    puts Time.zone
-    current_time = Time.now
-    puts Time.now
+    current_time = Time.now.in_time_zone
     result = []
     6.times do |t|
       current_time = current_time + 1.hour

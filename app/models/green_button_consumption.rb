@@ -121,12 +121,12 @@ class GreenButtonConsumption < ActiveRecord::Base
   end
 
   def self.current_month_target(user_id)
-    cur_date = Time.now
+    cur_date = Time.now.in_time_zone
     return self.get_monthly_scores({:user_id => user_id, :month => cur_date.month})
   end
 
   def self.get_last_11_months(user_id)
-    cur_date = Time.now.change({:day => 15})
+    cur_date = Time.now.in_time_zone.change({:day => 15})
     result = []
     11.times do |i|
       cur_date = cur_date - 1.month
@@ -138,7 +138,7 @@ class GreenButtonConsumption < ActiveRecord::Base
   end
 
   def self.get_real_time(user_id)
-    cur_date = Time.now
+    cur_date = Time.now.in_time_zone
     doy = cur_date.strftime('%j').to_i
     hour = cur_date.hour
     current_consumption = GreenButtonConsumption.where("extract(doy from time) = ? and hour = ? and user_id = ?", doy, hour, user_id).first
@@ -160,7 +160,7 @@ class GreenButtonConsumption < ActiveRecord::Base
   end
 
   def self.get_scores(user_id)
-    cur_date = Time.now
+    cur_date = Time.now.in_time_zone
     scores = self.get_monthly_scores({:user_id => user_id, :month => cur_date.month, :day => cur_date.day})
 
     result = [{:month => cur_date.strftime('%b'), :stars => scores[:stars], :flags => scores [:flags]}]
