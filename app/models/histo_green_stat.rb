@@ -2,6 +2,7 @@ class HistoGreenStat < ActiveRecord::Base
   set_table_name "histo_green_stat"
 
   def self.get_forecast
+    puts "----- get_forecast"
     puts Time.zone
     current_time = Time.now
     puts Time.now
