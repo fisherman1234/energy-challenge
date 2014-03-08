@@ -9,9 +9,11 @@ define([
   'views/navigation/navigation',
   'views/tutorials/tutorials',
   'views/goals/goals',
-  'views/advice/advice'
+  'views/advice/advice',
+  'views/home/simulator'
 
-], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView, GoalView, AdviceView) {
+
+], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView, GoalView, AdviceView, SimulatorView) {
 
   return Backbone.Router.extend({
     routes: {
@@ -22,6 +24,7 @@ define([
       'history': 'history',
       'goals': 'goals',
       'advice': 'advice',
+      'simulator': 'simulator',
       '*catchAll': 'notFound'
     },
     initialize: function ($container) {
@@ -36,7 +39,8 @@ define([
         login: {view: new LoginView(), rendered: false},
         tutorial: {view: new TutorialView(), rendered: false},
         goals: {view: new GoalView(), rendered: false},
-        advice: {view: new AdviceView(), rendered: false}
+        advice: {view: new AdviceView(), rendered: false},
+        simulator: {view: new SimulatorView(), rendered: false}
       };
 
 
@@ -102,6 +106,10 @@ define([
     advice: function(){
       this.renderView(this.$leftPane, 'advice', {}, true);
       this.renderView(this.$navBar, 'navigation', {title: 'Tips'}, true);
+    },
+    simulator: function(){
+      this.renderView(this.$leftPane, 'simulator', {}, true);
+      this.renderView(this.$navBar, 'navigation', {title: 'Energy estimate'}, true);
     },
     realTimeBreakdown: function(){
       this.renderView(this.$leftPane, 'breakdown', {}, true);

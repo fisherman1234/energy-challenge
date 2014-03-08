@@ -7186,3 +7186,24 @@ body,
 .goal-range {
   width: 100%;
 }
+.controls table {
+  width: 100%;
+}
+.controls td {
+  width: 33%;
+  height: 50px;
+  border: 1px solid gray;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f3f3f3;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+}
+.controls td.active {
+  color: #779241;
+}
