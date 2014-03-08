@@ -7125,8 +7125,15 @@ body,
   display: inline-block;
 }
 .paneContents-tutorial .carousel-inner {
-  width: 80%;
-  margin: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+  width: auto;
+}
+.paneContents-tutorial .carousel-control.left {
+  left: 5px;
+}
+.paneContents-tutorial .carousel-control.right {
+  right: 5px;
 }
 .paneContents-tutorial .carousel-control {
   top: 250px;
