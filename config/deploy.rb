@@ -1,6 +1,9 @@
 require 'rvm/capistrano'
 require 'erb'
 require 'bundler/capistrano'
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 set :bundle_flags, '--deployment'
 
 set :keep_releases, 6
@@ -48,7 +51,6 @@ end
 after "deploy:update_code", "deploy:setup_symlinks"
 after "deploy:update_code", "deploy:migrate"
 after "deploy:update_code", "deploy:restart"
-
 
 namespace :remote do
   desc "Connects remotely to the database"

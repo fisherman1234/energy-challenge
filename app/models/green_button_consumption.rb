@@ -167,4 +167,23 @@ class GreenButtonConsumption < ActiveRecord::Base
     result += self.get_last_11_months(user_id)
     result
   end
+
+  def self.get_home(user_id)
+
+    home_data = Rails.cache.fetch("get_home_#{user_id}") do
+      output = {}
+      output[:real_time_prod] = CaliforniaProduction.get_real_time
+      output[:scores] = GreenButtonConsumption.get_scores(user_id)
+      output[:real_time_consumption] = GreenButtonConsumption.get_real_time(user_id)
+      output[:monthly_target] = GreenButtonConsumption.current_month_target(user_id)
+      output[:forecast] = HistoGreenStat.get_forecast
+      output
+    end
+    home_data
+  end
+
+  def self.reset_data
+    Rails.cache.clear
+    self.get_home('alan') # build for alan
+  end
 end
