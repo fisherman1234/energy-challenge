@@ -1,9 +1,10 @@
 define([
   'jquery',
   'underscore',
+  'shared/collections/modelsCache',
   'shared/views/base',
   'collections/greenButtonConsumptions'
-], function ($, _, BaseView, GreenButtonConsumptionCollection) {
+], function ($, _, modelsCache, BaseView, GreenButtonConsumptionCollection) {
 
   return BaseView.extend({
     initialize: function (args) {
@@ -14,6 +15,7 @@ define([
     render: function (options) {
       this.options = options || {};
       this.options.data = this.options.data || {last_day: moment().dayOfYear(), duration: 6};
+      this.options.data.user_id = modelsCache.currentUser;
       this.consumption.fetch({data: this.options.data});
       return this;
     },

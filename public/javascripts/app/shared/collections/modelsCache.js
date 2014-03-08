@@ -4,7 +4,8 @@ define([
 ], function ($, HomeModel) {
 
   var modelsCache = {
-    home: new HomeModel()
+    home: new HomeModel(),
+    currentUser: 'alan'
   };
   return modelsCache;
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221165929) do
+ActiveRecord::Schema.define(:version => 20140224225045) do
 
   create_table "california_productions", :force => true do |t|
     t.datetime "time"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20140221165929) do
     t.integer  "month"
     t.integer  "day"
     t.integer  "hour"
+    t.integer  "day_of_week"
   end
 
   create_table "green_button_consumptions", :force => true do |t|
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20140221165929) do
     t.integer  "day"
     t.integer  "hour"
     t.decimal  "cached_state_renewable_consumption"
+    t.integer  "day_of_week"
   end
 
 end

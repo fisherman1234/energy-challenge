@@ -6,13 +6,15 @@ define([
   'views/login/login',
   'views/home/breakdown',
   'views/home/history',
-  'views/navigation/navigation'
-], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView) {
+  'views/navigation/navigation',
+  'views/tutorials/tutorials'
+], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView) {
 
   return Backbone.Router.extend({
     routes: {
       '': 'root',
       'home': 'home',
+      'tutorial': 'tutorial',
       'breakdown': 'realTimeBreakdown',
       'history': 'history',
       '*catchAll': 'notFound'
@@ -26,7 +28,8 @@ define([
         breakdown: { view: new BreakDownView(), rendered: false },
         history: { view: new HistoryView(), rendered:false },
         navigation: { view: new NavigationView(), rendered: false},
-        login: {view: new LoginView(), rendered: false}
+        login: {view: new LoginView(), rendered: false},
+        tutorial: {view: new TutorialView(), rendered: false}
       };
 
 
@@ -75,6 +78,10 @@ define([
     },
     login: function () {
       this.renderView(this.$leftPane, 'login', {}, true);
+      this.$navBar.hide()
+    },
+    tutorial: function(){
+      this.renderView(this.$leftPane, 'tutorial', {}, true);
       this.$navBar.hide()
     },
     notFound: function(){
