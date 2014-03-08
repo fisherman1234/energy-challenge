@@ -1,1 +1,1 @@
-define(["jquery","shared/models/home"],function(e,t){var n={home:new t};return n});
+define(["jquery","shared/models/home"],function(e,t){var n={home:new t,currentUser:"alan"};return n});

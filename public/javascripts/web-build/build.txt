@@ -66,6 +66,13 @@ text!views/home/goalData.html
 main/views/home/history.js
 text!views/navigation/navigation.html
 main/views/navigation/navigation.js
+text!views/tutorials/page1.html
+text!views/tutorials/page2.html
+text!views/tutorials/page3.html
+text!views/tutorials/page4.html
+text!views/tutorials/page5.html
+text!views/tutorials/tutorials.html
+main/views/tutorials/tutorials.js
 main/router.js
 text!layout.html
 main/layout.js
