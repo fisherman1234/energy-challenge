@@ -1,0 +1,1 @@
+define(["jquery","underscore","shared/views/base","text!./scoreHistory.html"],function(e,t,n,r){return n.extend({initialize:function(e){},render:function(){return this.$el.html(r),this}})});
