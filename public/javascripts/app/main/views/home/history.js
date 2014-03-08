@@ -17,12 +17,14 @@ define([
 
     render: function () {
       this.$el.html(historyViewTemplate);
+      this.$('.legend').hide();
       var options = {};
       options.data = {last_day: moment().dayOfYear(), duration: 6};
       this.consumption.setElement(this.$("#full-history")).render(options);
       return this;
     },
     postRender: function(){
+      this.$('.legend').show();
       var data = {
         stars: this.consumption.scores.stars.length,
         starsTotal: modelsCache.home.get('monthly_target').stars,

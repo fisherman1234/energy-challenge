@@ -181,8 +181,22 @@ class GreenButtonConsumption < ActiveRecord::Base
     home_data
   end
 
+  def self.get_current_history(user_id)
+    month = Time.now.in_time_zone.strftime('%m').to_i
+
+    history = Rails.cache.fetch("get_current_history_#{user_id}_#{month}") do
+      consumptions = GreenButtonConsumption.where("month = ? and user_id = ? and cached_state_renewable_consumption is not null", month, user_id).order('extract(doy from time) desc, extract(hour from time) asc')
+
+      final = GreenButtonConsumption.equalize_data(consumptions)
+
+      final
+    end
+    history
+  end
+
   def self.reset_data
     Rails.cache.clear
     self.get_home('alan') # build for alan
+    self.get_current_history('alan') # build for alan
   end
 end

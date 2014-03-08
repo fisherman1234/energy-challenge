@@ -6942,7 +6942,6 @@ body {
   margin-left: 20px;
 }
 .history-container {
-  padding-bottom: 20px;
   border-bottom: 1px solid #dad7d7;
 }
 .section:after {
@@ -6992,6 +6991,10 @@ body {
 }
 .legend {
   font-size: 10px;
+}
+#full-history {
+  padding-bottom: 10px;
+  margin-bottom: 1px solid #dad7d7;
 }
 .punchard td {
   height: 22px;
@@ -7084,12 +7087,13 @@ body,
   margin-left: 20px;
   cursor: pointer;
 }
-.history-container .legend {
-  border-top: 1px solid gray;
-  width: 100%;
-  border-bottom: 1px solid gray;
-  margin-top: 10px;
+.history-container .legend-container {
+  border-top: 1px solid #dad7d7;
   margin-bottom: 10px;
+}
+.history-container .legend {
+  width: 100%;
+  margin-top: 10px;
 }
 .history-container .legend .item {
   text-align: center;
