@@ -30,6 +30,7 @@ lib/bootstrap/bootstrap.js
 /Users/thibault/rails_projects/energy-challenge/public/javascripts/components/bootstrap-timepicker/js/bootstrap-timepicker.js
 /Users/thibault/rails_projects/energy-challenge/public/javascripts/components/bootstrap-datepicker/js/bootstrap-datepicker.js
 /Users/thibault/rails_projects/energy-challenge/public/javascripts/components/nouislider/jquery.nouislider.js
+/Users/thibault/rails_projects/energy-challenge/public/javascripts/components/jquery.cookie/jquery.cookie.js
 lib/utilities/hl-jquery.js
 lib/utilities/hl-tooltip.js
 /Users/thibault/rails_projects/energy-challenge/public/javascripts/components/jquery-idletimer/src/idle-timer.js
@@ -42,6 +43,7 @@ main/../common.js
 
 main/init.js
 ----------------
+/Users/thibault/rails_projects/energy-challenge/public/javascripts/components/jsTimezoneDetect/jstz.js
 shared/views/base.js
 shared/models/home.js
 shared/collections/modelsCache.js
