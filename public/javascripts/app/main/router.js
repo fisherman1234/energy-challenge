@@ -58,7 +58,7 @@ define([
         throw new Error("View not found " + viewKey);
       }
 
-      window.scrollTo(0);
+      window.scrollTo(0,0);
 
       // render when necessary
       if (forced || !viewConfig.rendered) {
