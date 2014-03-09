@@ -44,9 +44,9 @@ main/../common.js
 main/init.js
 ----------------
 /Users/thibault/rails_projects/energy-challenge/public/javascripts/components/jsTimezoneDetect/jstz.js
-shared/views/base.js
 shared/models/home.js
 shared/collections/modelsCache.js
+shared/views/base.js
 main/views/graphs/forecast.js
 main/views/graphs/currentConsumption.js
 main/views/graphs/currentGreenGauge.js
