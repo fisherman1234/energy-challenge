@@ -93,30 +93,30 @@ define([
       this.$navBar.hide()
     },
     tutorial: function(){
-      this.renderView(this.$leftPane, 'tutorial', {}, true);
+      this.renderView(this.$leftPane, 'tutorial');
       this.$navBar.hide()
     },
     goals: function(){
-      this.renderView(this.$leftPane, 'goals', {}, true);
+      this.renderView(this.$leftPane, 'goals');
       this.renderView(this.$navBar, 'navigation', {title: 'Goals'}, true);
     },
     notFound: function(){
       this.root();
     },
     advice: function(){
-      this.renderView(this.$leftPane, 'advice', {}, true);
+      this.renderView(this.$leftPane, 'advice');
       this.renderView(this.$navBar, 'navigation', {title: 'Tips'}, true);
     },
     simulator: function(){
-      this.renderView(this.$leftPane, 'simulator', {}, true);
+      this.renderView(this.$leftPane, 'simulator');
       this.renderView(this.$navBar, 'navigation', {title: 'Energy estimate'}, true);
     },
     realTimeBreakdown: function(){
-      this.renderView(this.$leftPane, 'breakdown', {}, true);
+      this.renderView(this.$leftPane, 'breakdown');
       this.renderView(this.$navBar, 'navigation', {title: 'Real Time'}, true);
     },
     history: function(){
-      this.renderView(this.$leftPane, 'history', {}, true);
+      this.renderView(this.$leftPane, 'history');
       this.renderView(this.$navBar, 'navigation', {title: 'History'}, true);
 
     }

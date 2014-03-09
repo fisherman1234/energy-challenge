@@ -6950,7 +6950,8 @@ body {
   position: absolute;
   top: 50%;
   right: 7px;
-  color: gray;
+  color: #5a5a5a;
+  font-weight: bold;
 }
 .current-date-marker {
   position: absolute;
@@ -7206,4 +7207,8 @@ body,
 }
 .controls td.active {
   color: #779241;
+}
+.setup-goals {
+  padding: 10px;
+  width: 90%;
 }
