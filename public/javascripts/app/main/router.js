@@ -2,6 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'shared/collections/modelsCache',
   'views/home/home',
   'views/login/login',
   'views/home/breakdown',
@@ -13,7 +14,7 @@ define([
   'views/home/simulator'
 
 
-], function ($, _, Backbone, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView, GoalView, AdviceView, SimulatorView) {
+], function ($, _, Backbone, modelsCache, HomeView, LoginView, BreakDownView, HistoryView, NavigationView, TutorialView, GoalView, AdviceView, SimulatorView) {
 
   return Backbone.Router.extend({
     routes: {
@@ -97,6 +98,9 @@ define([
       this.$navBar.hide()
     },
     goals: function(){
+      if (!modelsCache.home.id){
+        return Backbone.history.navigate('/', true);
+      }
       this.renderView(this.$leftPane, 'goals');
       this.renderView(this.$navBar, 'navigation', {title: 'Goals'}, true);
     },
@@ -108,14 +112,23 @@ define([
       this.renderView(this.$navBar, 'navigation', {title: 'Tips'}, true);
     },
     simulator: function(){
+      if (!modelsCache.home.id) {
+        return Backbone.history.navigate('/', true);
+      }
       this.renderView(this.$leftPane, 'simulator');
       this.renderView(this.$navBar, 'navigation', {title: 'Energy estimate'}, true);
     },
     realTimeBreakdown: function(){
+      if (!modelsCache.home.id) {
+        return Backbone.history.navigate('/', true);
+      }
       this.renderView(this.$leftPane, 'breakdown');
       this.renderView(this.$navBar, 'navigation', {title: 'Real Time'}, true);
     },
     history: function(){
+      if (!modelsCache.home.id) {
+        return Backbone.history.navigate('/', true);
+      }
       this.renderView(this.$leftPane, 'history');
       this.renderView(this.$navBar, 'navigation', {title: 'History'}, true);
 
