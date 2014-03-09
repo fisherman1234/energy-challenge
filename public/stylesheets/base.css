@@ -7,48 +7,6 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.clearfix:after {
-  clear: both;
-}
-.a {
-  *zoom: 1;
-}
-.a:before,
-.a:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.a:after {
-  clear: both;
-}
-.shaded {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIElEQVQIW2OMjo7evHTpUl8GKGAE0ciCYAFkQbgATBAAACINyVg39pMAAAAASUVORK5CYII=) repeat;
-}
-.hide-text {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-.input-block-level {
-  display: block;
-  width: 100%;
-  min-height: 30px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 article,
 aside,
 details,
@@ -5859,6 +5817,48 @@ a.badge:focus {
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.a {
+  *zoom: 1;
+}
+.a:before,
+.a:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.a:after {
+  clear: both;
+}
+.shaded {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIElEQVQIW2OMjo7evHTpUl8GKGAE0ciCYAFkQbgATBAAACINyVg39pMAAAAASUVORK5CYII=) repeat;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 @-ms-viewport {
   width: device-width;
 }
@@ -7211,4 +7211,7 @@ body,
 .setup-goals {
   padding: 10px;
   width: 90%;
+}
+.controls-container {
+  padding: 10px;
 }
