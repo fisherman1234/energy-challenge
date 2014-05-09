@@ -4,33 +4,34 @@ class Regelleistung
   def self.get_links
     doc = Nokogiri::HTML(open("#{Rails.root}/lib/assets/regelleistung.net.html"))
     links = doc.css("#ausschreibung a").map { |l| l.attributes["href"].value }
-    return links.select { |l| l.match("details") }
+    return links.select { |l| l.match("result") }
   end
 
   def self.get_page(page)
     puts page
     doc = Nokogiri::HTML(open(page))
     result = []
-    metadata = doc.css(".main form .value").map { |l| l.content.gsub("\n", "").strip }
+    metadata = [doc.css("div.main table.layout")[0].css("td")[1].content]
     metadata.unshift(page)
-    rows = doc.css(".layout tbody tr")
+    rows = doc.css("table.main")[1].css("table.layout")[2].css("tbody tr")
     rows.each do |row|
-      result.push(metadata + row.css("td").map { |l| l.content })
+      result.push(metadata + row.css("td").map { |l| l.content.gsub("\n", "").strip })
     end
     result
   end
 
   def self.fetch_all
     links = self.get_links
-    data = [["Page", "From", "To", "Product type", "Tendertype", "Tendernumber", "Offering time", "Allocation time", "Product", "Total requirement", "Demand from anywhere", "Demand from grid 50Hz", "Demand from grid Amprion", "Demand from grid TenneT", "Demand from grid TransnetBW"]]
-    links.each do |link|
-      begin
-        data += self.get_page(link)
-      rescue
-        puts "error with link #{link}"
-      end
+    data = [["Page", "Date", "Product", "Average capacity price [Euro/MW]", "Marginal capacity price [Euro/MW]"]]
+    links[0..1].each do |link|
+      data += self.get_page(link)
+
+      #begin
+      #rescue
+      #  puts "error with link #{link}"
+      #end
     end
-    CSV.open("#{Rails.root}/lib/assets/regelleistung_out.csv", "w") do |csv|
+    CSV.open("#{Rails.root}/lib/assets/regelleistung_out_result.csv", "w") do |csv|
       data.each do |row|
         csv << row
       end
