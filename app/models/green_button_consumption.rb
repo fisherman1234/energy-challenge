@@ -186,9 +186,7 @@ class GreenButtonConsumption < ActiveRecord::Base
 
     history = Rails.cache.fetch("get_current_history_#{user_id}_#{month}") do
       consumptions = GreenButtonConsumption.where("month = ? and user_id = ? and cached_state_renewable_consumption is not null", month, user_id).order('extract(doy from time) desc, extract(hour from time) asc')
-
       final = GreenButtonConsumption.equalize_data(consumptions)
-
       final
     end
     history
